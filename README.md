@@ -20,8 +20,8 @@ For vpn setup see: https://github.com/qdm12/gluetun
 
 For better effect add cron job to restart containers from time to time:
 
-```cron
-*/5 * * * * /usr/local/bin/docker-compose restart bbb
+```
+*/5 * * * * VPNSP=*** OPENVPN_USER=*** OPENVPN_PASSWORD=*** /usr/local/bin/docker-compose -f /PATH/TO/REPO/docker-compose-vpn.yml up -d --force-recreate
 ```
 
 This will change your IP address every 5 minutes.
