@@ -1,0 +1,8 @@
+services:
+  bbb:
+    build: .
+    restart: always
+    # optional:
+    #volumes:
+    #  - ./config:/opt/bbb/config
+    #command: -config=config/config-volume.json

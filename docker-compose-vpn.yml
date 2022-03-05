@@ -1,0 +1,17 @@
+services:
+  vpn:
+    image: "qmcgaw/gluetun:v3.16.0"
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - VPNSP=${VPNSP}
+      - OPENVPN_USER=${OPENVPN_USER}
+      - OPENVPN_PASSWORD=${OPENVPN_PASSWORD}
+  bbb:
+    build: .
+    network_mode: service:vpn
+    restart: always
+    # optional:
+    #volumes:
+    #  - ./config:/opt/bbb/config
+    #command: -config=config/config-volume.json

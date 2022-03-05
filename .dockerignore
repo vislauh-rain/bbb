@@ -1,0 +1,5 @@
+.idea
+Dockerfile
+config/config-volume.json
+config/config-test.json
+docker-compose*

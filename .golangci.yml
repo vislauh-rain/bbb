@@ -1,0 +1,76 @@
+linters:
+  enable-all: true
+  disable:
+    - maligned
+    - golint
+    - scopelint
+    - interfacer
+    - errcheck
+    - nlreturn
+    - goerr113
+    - gochecknoglobals
+    - whitespace
+    - gofumpt
+    - wsl
+    - exhaustivestruct
+    - goimports
+    - godot
+    - gochecknoinits
+    - godox
+    - nakedret
+    - deadcode
+    - errorlint
+    - ifshort
+    - paralleltest
+    - tagliatelle
+    - testpackage
+    - durationcheck
+    - stylecheck
+
+linters-settings:
+  funlen:
+    lines: 130
+    statements: 60
+  gci:
+    local-prefixes: bitbucket.org/saygames/manager3000
+  gocritic:
+    disabled-checks:
+      - commentFormatting
+      - ifElseChain
+  gofmt:
+    simplify: false
+  revive:
+    rules:
+      - name: context-as-argument
+      - name: context-keys-type
+      - name: error-return
+      - name: error-strings
+      - name: error-naming
+      - name: if-return
+      - name: var-declaration
+      - name: package-comments
+      - name: range
+      - name: receiver-naming
+      - name: time-naming
+      - name: unexported-return
+      - name: errorf
+      - name: unused-parameter
+      - name: unreachable-code
+      - name: redefines-builtin-id
+      - name: get-return
+      - name: confusing-results
+      - name: deep-exit
+      - name: unnecessary-stmt
+      - name: struct-tag
+      - name: constant-logical-expr
+      - name: bool-literal-in-expr
+      - name: range-val-in-closure
+      - name: range-val-address
+      - name: waitgroup-by-value
+      - name: atomic
+      - name: unhandled-error
+        arguments: [ "builder.WriteString", "builder.WriteRune" ]
+      - name: string-of-int
+      - name: unconditional-recursion
+      - name: identical-branches
+      - name: defer
