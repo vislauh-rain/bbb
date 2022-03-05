@@ -28,7 +28,7 @@ This will change your IP address every 5 minutes.
 
 ## Why bbb
 
-Most other simple-to-use tools do simple get request to the provided urls.
+Most other simple-to-use tools do simple GET requests to the provided urls.
 But such requests are easily handled by ddos protection sofware and bot detection scripts.
 BBB can be launched in to modes:
 
@@ -45,29 +45,29 @@ This helps to bypass some anti-ddos protections (with the help of some custom co
 
 ## Config
 
-```json
+```javascript
 {
   "Urls": [
     {
       "Url": "https://lenta.ru/news/{{.RandDate.Format \"2006/01/02\"}}/{{.RandStr}}/"
     },
-    ...
+    //...
   ],
   "Http": {
     "Header": {
       "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:97.0) Gecko/20100101 Firefox/97.0",
-      ...
+      //...
     }
   },
   "Rod": {
-    "ShowUi": true|false #for debug
+    "ShowUi": true|false //for debug
   },
   "Workers": {
-    "Count": 500, #threads or browser tabs count
+    "Count": 500, //threads or browser tabs count
     "Timeout": 3
   },
   "Log": {
-    "Level": "error|warning|default|verbose" #optional
+    "Level": "error|warning|default|verbose" //optional
   }
 }
 ```
