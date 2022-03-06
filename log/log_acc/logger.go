@@ -61,10 +61,6 @@ func (l *logger) Log(ctx context.Context, _ bbb.LogLevel, msg string) {
 }
 
 func (l *logger) Update(ctx context.Context, update bbb.UrlUpdate) {
-	if update.Err != nil && strings.Contains(update.Err.Error(), "net::ERR_NAME_NOT_RESOLVED") {
-		l.Log(ctx, bbb.LogLevelDefault, "waiting for DNS server...")
-		return
-	}
 	select {
 	case l.updateCh <- update:
 	case <-l.done:
@@ -137,6 +133,14 @@ func (a accUpdate) lastErr() string {
 }
 
 func (l *logger) update(u bbb.UrlUpdate) {
+	if u.Err != nil && strings.Contains(u.Err.Error(), "net::ERR_NAME_NOT_RESOLVED") {
+		l.msg("waiting for DNS server...")
+		if len(l.updates) > 0 {
+			l.updates = map[int]accUpdate{}
+		}
+		return
+	}
+
 	acc := l.updates[u.Index]
 	if acc.started.IsZero() {
 		acc.started = time.Now()
