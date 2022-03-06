@@ -11,5 +11,4 @@ RUN cd /opt/bbb \
     && go build -o run .
 
 WORKDIR /opt/bbb
-VOLUME /opt/bbb/config
 ENTRYPOINT ["/opt/bbb/run"]
